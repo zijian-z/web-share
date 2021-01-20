@@ -8,6 +8,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Transactional
 @Service
@@ -24,7 +25,7 @@ public class LinkService {
      * @param link
      * @return
      */
-    public Link addLink(Link link) {
+    public Link save(Link link) {
         return linkRepository.save(link);
     }
 
@@ -43,5 +44,14 @@ public class LinkService {
      */
     public Page<Link> findAllByUserId(Long userId, Pageable pageable) {
         return linkRepository.findAllByUserId(userId, pageable);
+    }
+
+    /**
+     * 根据linkId查找链接
+     * @param linkId
+     * @return
+     */
+    public Optional<Link> findById(Long linkId) {
+        return linkRepository.findById(linkId);
     }
 }

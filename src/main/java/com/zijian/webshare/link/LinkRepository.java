@@ -4,8 +4,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
+import java.util.Optional;
+
 public interface LinkRepository extends PagingAndSortingRepository<Link, Long> {
     Page<Link> findAll(Pageable pageable);
     Page<Link> findAllByUserId(Long userId, Pageable pageable);
+    Optional<Link> findById(Long linkId);
 }
 
