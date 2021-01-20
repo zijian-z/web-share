@@ -1,18 +1,17 @@
 package com.zijian.webshare.user;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-@Entity
+@Entity(name = "user")
 public class User {
-    @GeneratedValue
+    @JsonIgnore
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Id
     private Long id;
     @NotBlank
@@ -24,6 +23,11 @@ public class User {
 
     public User() {
         this.username = null;
+        this.password = null;
+    }
+
+    public User(String username) {
+        this.username = username;
         this.password = null;
     }
 

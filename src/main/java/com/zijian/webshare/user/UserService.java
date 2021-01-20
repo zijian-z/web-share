@@ -46,9 +46,9 @@ public class UserService {
 
     /**
      * 匹配用户密码
-     * @param u1 登录用户
-     * @param u2 数据库查出来的用户
-     * @return
+     * @param raw 原始字符串
+     * @param encrypted 加密后的字符串
+     * @return 两者一致就返回true
      */
     public boolean checkPassword(String raw, String encrypted) {
         return encoder.matches(raw, encrypted);
