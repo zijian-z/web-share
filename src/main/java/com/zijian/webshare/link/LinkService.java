@@ -1,5 +1,6 @@
 package com.zijian.webshare.link;
 
+import com.zijian.webshare.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,13 +36,14 @@ public class LinkService {
     public Page<Link> findAll(Pageable pageable) {
         return linkRepository.findAll(pageable);
     }
+
     /**
-     * 由用户id查找所有上传的链接
-     * @param userId
+     * 由用户查找所有上传的链接
+     * @param user
      * @return
      */
-    public Page<Link> findAllByUserId(Long userId, Pageable pageable) {
-        return linkRepository.findAllByUserId(userId, pageable);
+    public Page<Link> findAllByUser(User user, Pageable pageable) {
+        return linkRepository.findAllByUser(user, pageable);
     }
 
     /**
