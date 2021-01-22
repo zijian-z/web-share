@@ -19,7 +19,8 @@
 ...
 
 ## 截图
-![首页](https://raw.githubusercontent.com/zijian-z/cdn/main/index.png)
-![详情页面](https://raw.githubusercontent.com/zijian-z/cdn/main/share.png)
-![动态通知](https://raw.githubusercontent.com/zijian-z/cdn/main/notify.png)
-![维护个人信息](https://raw.githubusercontent.com/zijian-z/cdn/main/profile.png)
+<img src="https://gitee.com/zhangthree3/cdn/raw/main/login.png" alt="首页" width="300"/>
+<img src="https://gitee.com/zhangthree3/cdn/raw/main/index.png" alt="首页" width="300"/>
+<img src="https://gitee.com/zhangthree3/cdn/raw/main/share.png" alt="首页" width="300"/>
+<img src="https://gitee.com/zhangthree3/cdn/raw/main/notify.png" alt="首页" width="300"/>
+<img src="https://gitee.com/zhangthree3/cdn/raw/main/profile.png" alt="首页" width="300"/>
