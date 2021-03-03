@@ -20,17 +20,17 @@
 
 ## 截图
 <kbd>
-<img src="https://gitee.com/zhangthree3/cdn/raw/main/login.png" alt="首页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/login.png" alt="登录页" width="300"/>
 </kbd>
 <kbd>
-<img src="https://gitee.com/zhangthree3/cdn/raw/main/index.png" alt="首页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/index.png" alt="首页" width="300"/>
 </kbd>
 <kbd>
-<img src="https://gitee.com/zhangthree3/cdn/raw/main/share.png" alt="首页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/share.png" alt="评论页" width="300"/>
 </kbd>
 <kbd>
-<img src="https://gitee.com/zhangthree3/cdn/raw/main/notify.png" alt="首页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/notify.png" alt="通知页" width="300"/>
 </kbd>
 <kbd>
-<img src="https://gitee.com/zhangthree3/cdn/raw/main/profile.png" alt="首页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/profile.png" alt="个人信息页" width="300"/>
 </kbd>
