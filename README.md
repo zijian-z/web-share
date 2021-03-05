@@ -13,7 +13,7 @@
 - [x] 发表评论
 - [x] @用户通知
 - [x] 个人信息维护
-- [ ] 热度排序
+- [x] 热度排序
 
 
 ...
@@ -23,10 +23,10 @@
 <img src="https://raw.githubusercontent.com/zijian-z/cdn/main/login.png" alt="登录页" width="300"/>
 </kbd>
 <kbd>
-<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/index.png" alt="首页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/index2.png" alt="首页" width="300"/>
 </kbd>
 <kbd>
-<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/share.png" alt="评论页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/share2.png" alt="评论页" width="300"/>
 </kbd>
 <kbd>
 <img src="https://raw.githubusercontent.com/zijian-z/cdn/main/notify.png" alt="通知页" width="300"/>
