@@ -23,6 +23,8 @@ public class Link {
     @OneToMany(mappedBy = "link")
     //mappedBy指向维护关系的对象的某个属性名
     private final List<Comment> comments;
+    @Transient
+    private boolean userLiked;
 
     /**
      *
@@ -39,6 +41,14 @@ public class Link {
         this.comments = comments;
     }
 
+    public Link(String title, String uri, Long createTime, User user, List<Comment> comments, boolean userLiked) {
+        this.title = title;
+        this.uri = uri;
+        this.createTime = createTime;
+        this.user = user;
+        this.comments = comments;
+        this.userLiked = userLiked;
+    }
 
     public Link() {
         this.title = null;
@@ -70,6 +80,14 @@ public class Link {
 
     public List<Comment> getComments() {
         return comments;
+    }
+
+    public boolean isUserLiked() {
+        return userLiked;
+    }
+
+    public void setUserLiked(boolean userLiked) {
+        this.userLiked = userLiked;
     }
 
     @Override
