@@ -1,6 +1,8 @@
 package com.zijian.webshare.user;
 
 import com.zijian.webshare.exception.ResourceEmptyException;
+import com.zijian.webshare.mail.MailProducer;
+import com.zijian.webshare.util.VerificationCodeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
@@ -9,8 +11,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.Email;
 import java.util.HashMap;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/users")
@@ -18,17 +22,29 @@ public class UserController {
     private final UserService userService;
     private final HttpSession httpSession;
     private final HashMap<String, User> map;
+    private final MailProducer mailProducer;
+    private final RedisTemplate<String, String> redisTemplate;
 
     @Autowired
-    public UserController(UserService userService, HttpSession httpSession, HashMap<String, User> map) {
+    public UserController(UserService userService, HttpSession httpSession,
+                          HashMap<String, User> map, MailProducer mailProducer,
+                          RedisTemplate<String, String> redisTemplate) {
         this.userService = userService;
         this.httpSession = httpSession;
         this.map = map;
+        this.mailProducer = mailProducer;
+        this.redisTemplate = redisTemplate;
     }
 
     @GetMapping("/login")
     public ResponseEntity<String> login(@RequestParam String username, @RequestParam String password) {
-        Optional<User> optional = userService.findByUsername(username);
+        Optional<User> optional;
+        if (username.contains("@")) {
+            optional = userService.findByEmail(username);
+        }else{
+            optional = userService.findByUsername(username);
+        }
+
         if (optional.isPresent()) {
             User user = optional.get();
             if (userService.checkPassword(password, user.getPassword())) {
@@ -52,13 +68,28 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@Validated @RequestBody User user) {
+    public ResponseEntity<String> register(@Validated @RequestBody UserVO userVO) {
+        String storedCode = redisTemplate.opsForValue().get(userVO.getEmail());
+        if (storedCode == null || !storedCode.equals(userVO.getCode())) {
+            return new ResponseEntity<>("code.error", HttpStatus.OK);
+        }
         try {
-            userService.register(user.getUsername(), user.getPassword());
+            userService.register(userVO.getUsername(), userVO.getEmail(), userVO.getPassword());
             return new ResponseEntity<>("user.register.success", HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>("user.exists", HttpStatus.OK);
         }
+    }
+
+    @GetMapping("/registerMail")
+    public ResponseEntity<String> registerMail(@RequestParam String email) {
+        if (email == null || !email.contains("@")) {
+            return new ResponseEntity<>("code.error", HttpStatus.OK);
+        }
+        String code = VerificationCodeUtil.generate();
+        redisTemplate.opsForValue().set(email, code, 5, TimeUnit.MINUTES);
+        mailProducer.produce(email, "欢迎注册", code);
+        return new ResponseEntity<>("code.success", HttpStatus.OK);
     }
 
     @PostMapping("/logout")

@@ -25,15 +25,21 @@ public class UserService {
      * @param password 未加密的密码
      * @return 用户未注册时返回未注册的用户，此时密码已经加密
      */
-    public User register(String username, String password) {
+    public User register(String username, String email, String password) {
         userRepository.findByUsername(username).ifPresent(user -> {
+            throw new IllegalArgumentException("用户已存在!");
+        });
+        userRepository.findByEmail(email).ifPresent(user -> {
             throw new IllegalArgumentException("用户已存在!");
         });
 
         String encryptedPassword = encoder.encode(password);
-        return userRepository.save(new User(username, encryptedPassword));
+        return userRepository.save(new User(username, email, encryptedPassword));
     }
 
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
     /**
      * 根据用户名查找用户
      * @param username 用户名

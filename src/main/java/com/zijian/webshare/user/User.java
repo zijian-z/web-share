@@ -16,23 +16,22 @@ public class User {
     private Long id;
     @NotBlank
     private final String username;
+    @JsonIgnore
     @NotBlank
-    //用户能post密码，但是所有返回的json不会出现密码
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private final String email;
+    @JsonIgnore
+    @NotBlank
     private final String password;
 
     public User() {
         this.username = null;
+        this.email = null;
         this.password = null;
     }
 
-    public User(String username) {
+    public User(String username, String email, String password) {
         this.username = username;
-        this.password = null;
-    }
-
-    public User(String username, String password) {
-        this.username = username;
+        this.email = email;
         this.password = password;
     }
 
@@ -44,16 +43,11 @@ public class User {
         return username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getEmail() {
+        return email;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username=" + username +
-                ", password=" + password +
-                '}';
+    public String getPassword() {
+        return password;
     }
 }
