@@ -8,7 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
-@MapperScan("com.zijian.webshare.mapper")
+@MapperScan("com.zijian.news.mapper")
 public class WebShareApplication {
 
     public static void main(String[] args) {
