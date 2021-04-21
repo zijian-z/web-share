@@ -8,7 +8,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import javax.validation.ConstraintViolationException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -31,5 +30,15 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceEmptyException.class)
     public ResponseEntity<String> handleEmptyException(ResourceEmptyException e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.OK);
+    }
+
+    /**
+     * 处理请求错误 (用户已存在)
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(RequestException.class)
+    public ResponseEntity<String> handleRequestException(RequestException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }
