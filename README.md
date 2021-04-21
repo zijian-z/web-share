@@ -1,17 +1,17 @@
-# 模仿Hacker News编写的链接分享网站
+# 资讯分享网站
 
 ## 技术栈
-前端使用React，后端使用Spring Boot搭建
+后端使用Spring Boot，前端使用React搭建。
 
 ## 项目地址
-[前端](https://github.com/zijian-z/web-share-react)
-[后端](https://github.com/zijian-z/web-share)
+[后端](https://github.com/zijian-z/news)
+[前端](https://github.com/zijian-z/news-react)
 
 ## 功能
 - [x] 登录注册
-- [x] 分享链接
+- [x] 分享资讯
 - [x] 发表评论
-- [x] @用户通知
+- [x] 用户通知
 - [x] 个人信息维护
 - [x] 热度排序
 
@@ -20,17 +20,17 @@
 
 ## 截图
 <kbd>
-<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/login.png" alt="登录页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/news/master/img/index.png" alt="首页" width="300"/>
 </kbd>
 <kbd>
-<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/index2.png" alt="首页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/news/master/img/hot.png" alt="热度排序" width="300"/>
 </kbd>
 <kbd>
-<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/share2.png" alt="评论页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/news/master/img/share.png" alt="评论页" width="300"/>
 </kbd>
 <kbd>
-<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/notify.png" alt="通知页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/news/master/img/space.png" alt="通知页" width="300"/>
 </kbd>
 <kbd>
-<img src="https://raw.githubusercontent.com/zijian-z/cdn/main/profile.png" alt="个人信息页" width="300"/>
+<img src="https://raw.githubusercontent.com/zijian-z/news/master/img/profile.png" alt="个人信息页" width="300"/>
 </kbd>
