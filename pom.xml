@@ -9,19 +9,24 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.zijian</groupId>
-    <artifactId>web-share</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>web-share</name>
-    <description>web链接分享</description>
+    <artifactId>news</artifactId>
+    <version>0.2</version>
+    <name>news</name>
+    <description>资讯分享网站</description>
 
     <properties>
         <java.version>11</java.version>
     </properties>
 
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.1.3</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
