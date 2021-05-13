@@ -59,3 +59,33 @@ create table link_total_like (
     link_id bigint not null unique ,
     like_count bigint default 0
 ) engine = InnoDB default charset = utf8mb4;
+
+create table feed_folder (
+                             id bigint auto_increment primary key ,
+                             user_id bigint not null ,
+                             folder_name varchar(255) not null
+) engine = InnoDB, charset = utf8mb4;
+
+create table feed (
+                      id bigint auto_increment primary key ,
+                      user_id bigint not null ,
+                      folder_id bigint not null ,
+                      feed_url varchar(255) not null
+) engine = InnoDB, charset = utf8mb4;
+
+create table feed_content (
+                              id bigint auto_increment primary key ,
+                              feed_id bigint not null ,
+                              title varchar(255) not null ,
+                              description text not null ,
+                              publish_time bigint not null,
+                              link varchar(255)
+) engine = InnoDB, charset = utf8mb4;
+
+create table user_read (
+                           id bigint auto_increment primary key ,
+                           feed_id  bigint not null ,
+                           content_id  bigint not null ,
+                           user_id bigint not null ,
+                           is_read int not null default 0
+) engine = InnoDB, charset = utf8mb4;
